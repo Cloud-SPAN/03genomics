@@ -4,7 +4,7 @@ layout: lesson
 
 {% include gh_variables.html %}
 
-Last lesson you learned how to use the bash shell to interact with your computer through a command line interface. In this 
+In a [previous lesson](https://cloud-span.github.io/genomics03-using-the-command-line/), you learned how to use the bash shell to interact with your computer through a command line interface. In this 
 lesson and the next, you will learn more about applying this new knowledge to begin a common genomics workflow - identifying variants among sequencing samples 
 taken from multiple individuals within a population. In this lesson we will start with a set of sequenced reads (`.fastq` files) and perform
 some quality control steps. You will also learn about organising a genomics workflow and why metadata is an important consideration.

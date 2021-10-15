@@ -75,9 +75,21 @@ graphical user interface
     usually controlled by using a mouse.
     See also: [command-line interface](#command-line-interface).
 
+headers
+:   names at tops of columns that are descriptive about the column contents (sometimes optional)
+
 home directory
 :   The default directory associated with an account on a computer system.
     By convention, all of a user's files are stored in or below her home directory.
+
+metadata  
+:   data which describes other data  
+
+null value  
+:   a value used to record observations missing from a dataset
+
+observation  
+:   a single measurement or record of the object being recorded (e.g. the weight of a particular mouse)
 
 loop
 :   A set of instructions to be executed multiple times. Consists of a [loop body](#loop-body) and (usually) a
@@ -122,6 +134,12 @@ process
 prompt
 :   A character or characters display by a [REPL](#read-evaluate-print-loop) to show that
     it is waiting for its next command.
+
+quality assurance  
+:   any process which checks data for validity during entry  
+
+quality control  
+:   any process which removes problematic data from a dataset
 
 quoting
 :   (in the shell):

@@ -539,7 +539,7 @@ in your file browser.
 
 > ## Exercise
 >
-> Discuss your results with a neighbor. Which sample(s) looks the best
+> Discuss your results on the padlet. Which sample(s) looks the best
 > in terms of per base sequence quality? Which sample(s) look the
 > worst?
 >

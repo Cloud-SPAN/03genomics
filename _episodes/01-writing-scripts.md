@@ -391,7 +391,7 @@ scp <file I want to move> <where I want to move it>
 ~~~
 {: .bash}
 
-Note that you are always running `scp` locally, but that *doesn't* mean that
+Note that you always run `scp` locally, but that *doesn't* mean that
 you can only move files from your local computer. In order to move a file from your local computer to an AWS instance, the command would look like this:
 
 ~~~
@@ -442,19 +442,18 @@ Remember that in both instances, the command is run from your local machine, we'
 
 ### Uploading Data to your Virtual Machine with SCP within Git Bash
 
-If you are using a windows machine, you should be able to use scp as long as you have git bash/ git for windows installed
+If you are using a Windows machine, you should be able to use scp as long as you have Git Bash/Git for Windows installed.
 
-Once installed, you can open a terminal by running the program Git Bash from the Windows start menu
+Once installed, you can open a new terminal by running the program Git Bash from the Windows start menu.
 
-1. If you haven't done so, download git for windows, which contains allows windows users to run a linux type shell from [https://gitforwindows.org/](https://gitforwindows.org/), this installs a version of scp and ssh as part of the installation
-2. Make sure that you have *scp* installed:
+1. Make sure that you have *scp* installed:
 
 ~~~
 $ man scp
 ~~~
 {: .bash}
 
-3. Open the git bash terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory. Once git bash is installed, the remaining commands follow those of the unix platform:
+2. Open the Git Bash terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory. When using Git Bash, the commands follow those of the Unix platform:
 
 ~~~
 $  scp local_file.txt dcuser@ip.address:/home/dcuser/
@@ -487,7 +486,7 @@ $ scp <AWS instance> <local file>
 ~~~
 {: .bash}
 
-#### Uploading Data to your Virtual Machine with scp
+### Uploading Data to your Virtual Machine with scp
 
 Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory:
 
@@ -496,7 +495,7 @@ $  scp local_file.txt dcuser@ip.address:/home/dcuser/
 ~~~
 {: .bash}
 
-#### Downloading Data from your Virtual Machine with git bash installed scp
+### Downloading Data from your Virtual Machine with git bash installed scp
 
 Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/shell_data/scripted_bad_reads.txt.
 

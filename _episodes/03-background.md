@@ -20,7 +20,8 @@ We are going to use a long-term sequencing dataset from a population of *Escheri
  - **What is *E. coli*?**
     - *E. coli* are rod-shaped bacteria that can survive under a wide variety of conditions including variable temperatures, nutrient availability, and oxygen levels. Most strains are harmless, but some are associated with food-poisoning.
 
-![ [Wikimedia](https://species.wikimedia.org/wiki/Escherichia_coli#/media/File:EscherichiaColi_NIAID.jpg) ](../img/EscherichiaColi_NIAID.jpg)
+![ [Wikimedia](https://species.wikimedia.org/wiki/Escherichia_coli#/media/File:EscherichiaColi_NIAID.jpg) ](https://github.com/Cloud-SPAN/genomics04-data-preparation-organisation/blob/0ed100f5c8f8c0b83e8a1c23e4018e96fd4da66b/img/EscherichiaColi_NIAID.jpg)
+
 
 <!-- https://species.wikimedia.org/wiki/Escherichia_coli#/media/File:EscherichiaColi_NIAID.jpg -->
 

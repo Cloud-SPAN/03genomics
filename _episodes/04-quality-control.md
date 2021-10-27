@@ -22,7 +22,7 @@ tools in a specified order is commonly referred to as a *workflow* or a *pipelin
 An example of the workflow we will be using for our variant calling analysis is provided below with a brief
 description of each step.
 
-![workflow](../img/variant_calling_workflow.png)
+![workflow](/img/variant_calling_workflow.png)
 
 
 1. Quality control - Assessing quality using FastQC
@@ -89,7 +89,7 @@ $ gunzip SRR2584863_1.fastq.gz
 
 We will now assess the quality of the sequence reads contained in our fastq files.
 
-![workflow_qc](../img/var_calling_workflow_qc.png)
+![workflow_qc](/img/var_calling_workflow_qc.png)
 ## Details on the FASTQ format
 
 Although it looks complicated (and it is), we can understand the
@@ -331,7 +331,7 @@ analyses. Rather than looking at quality scores for each individual read, FastQC
 quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates
 a very high quality sample:
 
-![good_quality](../img/good_quality1.8.png)
+![good_quality](/img/good_quality1.8.png)
 
 The x-axis displays the base position in the read, and the y-axis shows quality scores. In this
 example, the sample contains reads that are 40 bp long. This is much shorter than the reads we
@@ -348,7 +348,7 @@ acceptable (yellow), and bad (red) quality scores.
 
 Now let's take a look at a quality plot on the other end of the spectrum.
 
-![bad_quality](../img/bad_quality1.8.png)
+![bad_quality](/img/bad_quality1.8.png)
 
 Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above.
 
@@ -539,7 +539,7 @@ in your file browser.
 
 > ## Exercise
 >
-> Discuss your results with a neighbor. Which sample(s) looks the best
+> Discuss your results on the padlet. Which sample(s) looks the best
 > in terms of per base sequence quality? Which sample(s) look the
 > worst?
 >

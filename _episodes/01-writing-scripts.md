@@ -147,7 +147,7 @@ grep -B1 -A2 -h NNNNNNNNNN *.fastq | grep -v '^--' > scripted_bad_reads.txt
 
 > ## Custom `grep` control
 >
-> We introduced the `-v` option in [the previous episode](http://www.datacarpentry.org/shell-genomics/04-redirection/), now we
+> We introduced the `-v` option in [the previous episode](https://cloud-span.github.io/genomics03-using-the-command-line/03-redirection/index.html), now we
 > are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`.
 >
 {: .callout}

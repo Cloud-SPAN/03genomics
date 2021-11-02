@@ -434,14 +434,14 @@ $ scp <AWS instance> <local file>
 
 > ## What is your AWS instance called?
 > The address you should use for you AWS instance has two main parts: your login credentials and your file path.
-> - the first part will look something like `csuser@ip-10-0-17-2471`. You can find your IP address before your command prompt or in the information displayed when you first logged into the AMI.
+> - the first part will look something like `csuser@ec2-52-209-20-238.eu-west-1.compute.amazonaws.com`. You can find this address in the command you were given to login to the AMI, which you can see by scrolling up to the beginning of today's session.
 > - the second part is the file path where you want to send/download your file, for example `/home/csuser`.
 > - the two parts are separated by a colon with **no** spaces.
 {: .callout}
 
 ### Uploading Data to your Virtual Machine with scp
 
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory **(make sure you substitute csuser@ip.address with your remote login credentials)**:
+Open the terminal/GitBash and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory **(make sure you substitute `csuser@ip.address` with your remote login credentials)**:
                                                       
 ~~~
 $  scp local_file.txt csuser@ip.address:/home/csuser/
@@ -454,7 +454,7 @@ $  scp local_file.txt csuser@ip.address:/home/csuser/
 
 Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/shell_data/scripted_bad_reads.txt.
 
-Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute csuser@ip.address with your remote login credentials)**:
+Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute `csuser@ip.address` with your remote login credentials)**:
 
 ~~~
 $ scp csuser@ip.address:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads

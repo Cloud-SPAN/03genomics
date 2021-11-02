@@ -171,7 +171,7 @@ $ history | tail -n 7
 
 > ## Exercise
 > Using your knowledge of the shell, use the append redirect `>>` to create a file called
-> `cs_course_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
+> `cs_course_log_XXXX_XX_XX.sh` which contains your last 7 commands. (Use the four-digit year, two-digit month, and two digit day, e.g.
 > `cs_course_log_2021_10_27.sh`)  
 > >
 > > ## Solution

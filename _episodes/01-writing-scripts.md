@@ -361,6 +361,11 @@ $
 
 This output means that you have ``curl`` installed, but not ``wget``.
 
+Another possibility is that you will get an output which says
+`no wget in...` followed by a list of file paths where wget was not found. Either way, it should be obvious which of the two you have installed.
+
+If you run these commands in the Cloud-SPAN AMI you will find that both are installed so you can use either.
+
 Once you know whether you have ``curl`` or ``wget``, use one of the
 following commands to download the file:
 

@@ -184,9 +184,16 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 ### File Permissions
 
-We've now made a backup copy of our file in a previous episode, but just because we have two copies, it doesn't make us safe. We can still accidentally delete or
-overwrite both copies. To make sure we can't accidentally mess up this backup file, we're going to change the permissions on the file so
-that we're only allowed to read (i.e. view) the file, not write to it (i.e. make new changes).
+We made a backup copy of our files in a previous episode, but just because we have two copies, it doesn't make us safe. We can still accidentally delete or
+overwrite both copies. To make sure we can't accidentally mess up these backup file, we're going to change the permissions on the files so
+that we're only allowed to read (i.e. view) them, not write to them (i.e. make new changes).
+
+Move into the backup folder we made earlier:
+
+~~~
+$ cd backup
+~~~
+{: .bash}
 
 View the current permissions on a file using the `-l` (long) flag for the `ls` command:
 
@@ -196,7 +203,8 @@ $ ls -l
 {: .bash}
 
 ~~~
--rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-rw-r--r-- 1 csuser csuser 47552 Oct 27 15:17 SRR097977-backup.fastq
+-rw-r--r-- 1 csuser csuser 43332 Oct 27 15:17 SRR098026-backup.fastq
 ~~~
 {: .output}
 
@@ -213,7 +221,7 @@ indicates that you have permission to write to (i.e. make changes to) the file, 
 don't have permission to carry out the ability encoded by that space (this is the space where `x` or executable ability is stored, we'll
 talk more about this in [a later lesson](http://www.datacarpentry.org/shell-genomics/05-writing-scripts/)).
 
-Our goal for now is to change permissions on this file so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
+Our goal for now is to change permissions on one of our files so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
 
 ~~~
 $ chmod -w SRR098026-backup.fastq
@@ -222,9 +230,26 @@ $ ls -l
 {: .bash}
 
 ~~~
--r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-r--r--r-- 1 csuser csuser 43332 Oct 27 15:17 SRR098026-backup.fastq
 ~~~
 {: .output}
+
+> ## Exercise
+> Now repeat what we just did for your other backup file.
+>
+>> ## Solution
+>> ~~~
+>> $ chmod -w SRR097977-backup.fastq
+>> $ ls -l
+>> ~~~
+>> {: .bash}
+>>
+>> ~~~
+>> -r--r--r-- 1 csuser csuser 47552 Oct 27 15:17 SRR097977-backup.fastq
+>> ~~~
+>> {: .output}
+> {: .solution}
+{: .challenge}
 
 ## Making the script into a program
 

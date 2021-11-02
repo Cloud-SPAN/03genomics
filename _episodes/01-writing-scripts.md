@@ -264,7 +264,7 @@ $ ls -l bad-reads-script.sh
 {: .bash}
 
 ~~~
--rw-rw-r-- 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
+-rw-rw-r-- 1  csuser 0 Oct 25 21:46 bad-reads-script.sh
 ~~~
 {: .output}
 
@@ -283,7 +283,7 @@ $ ls -l bad-reads-script.sh
 {: .bash}
 
 ~~~
--rwxrwxr-x 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
+-rwxrwxr-x 1 csuser csuser 0 Oct 25 21:46 bad-reads-script.sh
 ~~~
 {: .output}
 
@@ -434,10 +434,10 @@ $ scp <AWS instance> <local file>
 
 #### Uploading Data to your Virtual Machine with scp
 
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory:
+Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory:
 
 ~~~
-$  scp local_file.txt dcuser@ip.address:/home/dcuser/
+$  scp local_file.txt csuser@ip.address:/home/csuser/
 ~~~
 {: .bash}
 
@@ -453,10 +453,10 @@ $ find ~ -name *.txt
 {: .bash}
 
 
-Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute dcuser@ip.address with your remote login credentials)**:
+Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute csuser@ip.address with your remote login credentials)**:
 
 ~~~
-$ scp dcuser@ip.address:/home/dcuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
+$ scp csuser@ip.address:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
 ~~~
 {: .bash}
 
@@ -479,10 +479,10 @@ $ man scp
 ~~~
 {: .bash}
 
-2. Open the Git Bash terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory. When using Git Bash, the commands follow those of the Unix platform:
+2. Open the Git Bash terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory. When using Git Bash, the commands follow those of the Unix platform:
 
 ~~~
-$  scp local_file.txt dcuser@ip.address:/home/dcuser/
+$  scp local_file.txt csuser@ip.address:/home/csuser/
 ~~~
 {: .bash}
 
@@ -514,10 +514,10 @@ $ scp <AWS instance> <local file>
 
 ### Uploading Data to your Virtual Machine with scp
 
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory:
+Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory:
 
 ~~~
-$  scp local_file.txt dcuser@ip.address:/home/dcuser/
+$  scp local_file.txt csuser@ip.address:/home/csuser/
 ~~~
 {: .bash}
 
@@ -533,10 +533,10 @@ $ find ~ -name *.txt
 {: .bash}
 
 
-Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute dcuser@ip.address with your remote login credentials)**:
+Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute csuser@ip.address with your remote login credentials)**:
 
 ~~~
-$ scp dcuser@ip.address:/home/dcuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
+$ scp csuser@ip.address:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
 ~~~
 {: .bash}
 

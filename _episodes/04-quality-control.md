@@ -375,12 +375,12 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> {: .bash}
 >>
 >> ~~~
->> -rw-rw-r-- 1 dcuser dcuser 545M Jul  6 20:27 SRR2584863_1.fastq
->> -rw-rw-r-- 1 dcuser dcuser 183M Jul  6 20:29 SRR2584863_2.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 309M Jul  6 20:34 SRR2584866_1.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 296M Jul  6 20:37 SRR2584866_2.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 SRR2589044_1.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 SRR2589044_2.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 545M Jul  6 20:27 SRR2584863_1.fastq
+>> -rw-rw-r-- 1 csuser csuser 183M Jul  6 20:29 SRR2584863_2.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 309M Jul  6 20:34 SRR2584866_1.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 296M Jul  6 20:37 SRR2584866_2.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 124M Jul  6 20:22 SRR2589044_1.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 128M Jul  6 20:24 SRR2589044_2.fastq.gz
 >> ~~~
 >> {: .output}
 >>
@@ -501,14 +501,14 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+$ scp csuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
 ~~~
 {: .bash}
 
 As a reminder, the first part
-of the command `dcuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
+of the command `csuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
 the address for your remote computer. Make sure you replace everything
-after `dcuser@` with your instance number (the one you used to log in).
+after `csuser@` with your instance number (the one you used to log in).
 
 The second part starts with a `:` and then gives the absolute path
 of the files you want to transfer from your remote computer. Don't
@@ -568,7 +568,7 @@ We've now looked at quite a few "Per base sequence quality" FastQC graphs, but t
 Now that we've looked at our HTML reports to get a feel for the data,
 let's look more closely at the other output files. Go back to the tab
 in your terminal program that is connected to your AWS instance
-(the tab label will start with `dcuser@ip`) and make sure you're in
+(the tab label will start with `csuser@ip`) and make sure you're in
 our results subdirectory.
 
 ~~~

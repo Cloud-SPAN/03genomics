@@ -63,7 +63,7 @@ $ pwd
 You should see the output:
 
 ~~~
-/home/dcuser  
+/home/csuser  
 ~~~
 {: .output}
 

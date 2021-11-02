@@ -51,8 +51,8 @@ Here we are using the `-p` option for `mkdir`. This option allows `mkdir` to cre
 
 It will take about 15 minutes to download the files.
 ~~~
-mkdir -p ~/dc_workshop/data/untrimmed_fastq/
-cd ~/dc_workshop/data/untrimmed_fastq
+mkdir -p ~/cs_course/data/untrimmed_fastq/
+cd ~/cs_course/data/untrimmed_fastq
 
 curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_1.fastq.gz
 curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_2.fastq.gz
@@ -357,7 +357,7 @@ Here, we see positions within the read in which the boxes span a much wider rang
 We will now assess the quality of the reads that we downloaded. First, make sure you're still in the `untrimmed_fastq` directory
 
 ~~~
-$ cd ~/dc_workshop/data/untrimmed_fastq/
+$ cd ~/cs_course/data/untrimmed_fastq/
 ~~~
 {: .bash}
 
@@ -456,9 +456,9 @@ will move these
 output files into a new directory within our `results/` directory.
 
 ~~~
-$ mkdir -p ~/dc_workshop/results/fastqc_untrimmed_reads
-$ mv *.zip ~/dc_workshop/results/fastqc_untrimmed_reads/
-$ mv *.html ~/dc_workshop/results/fastqc_untrimmed_reads/
+$ mkdir -p ~/cs_course/results/fastqc_untrimmed_reads
+$ mv *.zip ~/cs_course/results/fastqc_untrimmed_reads/
+$ mv *.html ~/cs_course/results/fastqc_untrimmed_reads/
 ~~~
 {: .bash}
 
@@ -466,7 +466,7 @@ Now we can navigate into this results directory and do some closer
 inspection of our output files.
 
 ~~~
-$ cd ~/dc_workshop/results/fastqc_untrimmed_reads/
+$ cd ~/cs_course/results/fastqc_untrimmed_reads/
 ~~~
 {: .bash}
 
@@ -501,7 +501,7 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp csuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+$ scp csuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/cs_course/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
 ~~~
 {: .bash}
 
@@ -572,7 +572,7 @@ in your terminal program that is connected to your AWS instance
 our results subdirectory.
 
 ~~~
-$ cd ~/dc_workshop/results/fastqc_untrimmed_reads/
+$ cd ~/cs_course/results/fastqc_untrimmed_reads/
 $ ls
 ~~~
 {: .bash}
@@ -741,10 +741,10 @@ us whether this sample passed, failed, or is borderline (`WARN`). Remember, to q
 We can make a record of the results we obtained for all our samples
 by concatenating all of our `summary.txt` files into a single file
 using the `cat` command. We'll call this `fastqc_summaries.txt` and move
-it to `~/dc_workshop/docs`.
+it to `~/cs_course/docs`.
 
 ~~~
-$ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
+$ cat */summary.txt > ~/cs_course/docs/fastqc_summaries.txt
 ~~~
 {: .bash}
 
@@ -758,7 +758,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 >> We can get the list of all failed tests using `grep`.
 >>
 >> ~~~
->> $ cd ~/dc_workshop/docs
+>> $ cd ~/cs_course/docs
 >> $ grep FAIL fastqc_summaries.txt
 >> ~~~
 >> {: .bash}

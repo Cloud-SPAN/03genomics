@@ -253,11 +253,12 @@ $ ls -l
 
 ## Making the script into a program
 
-We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We are going to use the SRR098026-backup.fastq we generated in [an earlier episode](http://www.datacarpentry.org/shell-genomics/03-working-with-files/).
+We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We are going to use the `bad-read-scripts.sh` file we generated earlier in the episode.
 
-First, let's look at the current permissions.
+First, let's move back to our `~/shell_data/untrimmed_fastq` working directory using `cd` and look at the current permissions for `bad-read-scripts.sh` .
 
 ~~~
+$ cd ~/shell_data/untrimmed_fastq
 $ ls -l bad-reads-script.sh
 ~~~
 {: .bash}

@@ -296,7 +296,7 @@ $ ./bad-reads-script.sh
 
 The script should run the same way as before, but now we've created our very own computer program!
 
-You will learn more about writing scripts in [a later lesson](https://datacarpentry.org/wrangling-genomics/05-automation/index.html).
+You will learn more about writing scripts in [a later lesson](https://cloud-span.github.io/genomics05-data-processing-analysis/03-automation/index.html).
 
 ## Moving and Downloading Data
 

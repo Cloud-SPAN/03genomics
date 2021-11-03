@@ -403,19 +403,14 @@ using a transfer program, it needs to be installed on your local machine, not yo
 
 ## Transferring Data Between your Local Machine and the Cloud
 
-These directions are platform specific, so please follow the instructions for your system:
-
-**Please select the platform you wish to use for the exercises: <select id="id_platform" name="platformlist" onchange="change_content_by_platform('id_platform');return false;"><option value="unix" id="id_unix" selected> UNIX </option><option value="win" id="id_win" selected> Windows </option></select>**
-
-
-
-<div id="div_unix" style="display:block" markdown="1">
-
-### Uploading Data to your Virtual Machine with scp
+### Using scp for file transfer
 
 `scp` stands for 'secure copy protocol', and is a widely used UNIX tool for moving files
 between computers. The simplest way to use `scp` is to run it in your local terminal,
 and use it to copy a single file:
+
+If you are using a Windows machine, you should be able to use scp as long as you have Git Bash/Git for Windows installed. 
+Just make sure you run the commands below in a Git Bash terminal and not the built-in Windows terminal.
 
 ~~~
 scp <file I want to move> <where I want to move it>
@@ -437,28 +432,29 @@ $ scp <AWS instance> <local file>
 ~~~
 {: .bash}
 
-#### Uploading Data to your Virtual Machine with scp
+> ## What is your AWS instance called?
+> The address you should use for you AWS instance has two main parts: your login credentials and your file path.
+> - the first part will look something like `instance01-gc-cloud-span.york.ac.uk`. You can find this address in the command you were given to login to the AMI, which you can see by scrolling up to the beginning of today's session.
+> - the second part is the file path where you want to send/download your file, for example `/home/csuser`.
+> - the two parts are separated by a colon with **no** spaces.
+{: .callout}
 
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory:
+### Uploading Data to your Virtual Machine with scp
 
+Open the terminal/GitBash and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory **(make sure you substitute `csuser@ip.address` with your remote login credentials)**:
+                                                      
 ~~~
 $  scp local_file.txt csuser@ip.address:/home/csuser/
 ~~~
 {: .bash}
 
-#### Downloading Data from your Virtual Machine with scp
+**Tip:** you should be running this command while in the same folder as the file you want to send (local_file.txt). If you aren't, then you need to specify the path in your command.
+
+### Downloading Data from your Virtual Machine with scp
 
 Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/shell_data/scripted_bad_reads.txt.
 
-**Tip:** If you are looking for another (or any really) text file in your home directory to use instead, try:
-
-~~~
-$ find ~ -name *.txt
-~~~
-{: .bash}
-
-
-Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute csuser@ip.address with your remote login credentials)**:
+Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute `csuser@ip.address` with your remote login credentials)**:
 
 ~~~
 $ scp csuser@ip.address:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
@@ -466,85 +462,3 @@ $ scp csuser@ip.address:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_rea
 {: .bash}
 
 Remember that in both instances, the command is run from your local machine, we've just flipped the order of the to and from parts of the command.
-</div>
-
-
-<div id="div_win" style="display:block" markdown="1">
-
-### Uploading Data to your Virtual Machine with SCP within Git Bash
-
-If you are using a Windows machine, you should be able to use scp as long as you have Git Bash/Git for Windows installed.
-
-Once installed, you can open a new terminal by running the program Git Bash from the Windows start menu.
-
-1. Make sure that you have *scp* installed:
-
-~~~
-$ man scp
-~~~
-{: .bash}
-
-2. Open the Git Bash terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory. When using Git Bash, the commands follow those of the Unix platform:
-
-~~~
-$  scp local_file.txt csuser@ip.address:/home/csuser/
-~~~
-{: .bash}
-
-### Uploading Data to your Virtual Machine with scp
-
-`scp` stands for 'secure copy protocol', and is a widely used UNIX tool for moving files
-between computers. The simplest way to use `scp` is to run it in your local terminal,
-and use it to copy a single file:
-
-~~~
-scp <file I want to move> <where I want to move it>
-~~~
-{: .bash}
-
-Note that you are always running `scp` locally, but that *doesn't* mean that
-you can only move files from your local computer. In order to move a file from your local computer to an AWS instance, the command would look like this:
-
-~~~
-$ scp <local file> <AWS instance>
-~~~
-{: .bash}
-
-To move it back to your local computer, you re-order the `to` and `from` fields:
-
-~~~
-$ scp <AWS instance> <local file>
-~~~
-{: .bash}
-
-### Uploading Data to your Virtual Machine with scp
-
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory:
-
-~~~
-$  scp local_file.txt csuser@ip.address:/home/csuser/
-~~~
-{: .bash}
-
-### Downloading Data from your Virtual Machine with git bash installed scp
-
-Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/shell_data/scripted_bad_reads.txt.
-
-**Tip:** If you are looking for another (or any really) text file in your home directory to use instead, try:
-
-~~~
-$ find ~ -name *.txt
-~~~
-{: .bash}
-
-
-Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute csuser@ip.address with your remote login credentials)**:
-
-~~~
-$ scp csuser@ip.address:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
-~~~
-{: .bash}
-
-Remember that in both instances, the command is run from your local machine, we've just flipped the order of the to and from parts of the command.
-
-</div>

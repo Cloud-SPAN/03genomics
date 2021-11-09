@@ -184,14 +184,28 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 ### File Permissions
 
-We made a backup copy of our files in a previous episode, but just because we have two copies, it doesn't make us safe. We can still accidentally delete or
-overwrite both copies. To make sure we can't accidentally mess up these backup file, we're going to change the permissions on the files so
+We made a backup copy of our files in a previous episode, but then removed the folder and the backup fastq file in order to practise removing files. We would like to make sure we can't accidentally mess up or remove these backup file, so we're going to change the permissions on the files so
 that we're only allowed to read (i.e. view) them, not write to them (i.e. make new changes).
 
-Move into the backup folder we made earlier:
+We need to remake the  backup folder we made earlier, make sure you are in the untrimmed_fastq folder:
 
 ~~~
-$ cd backup
+$pwd
+~~~
+{: .bash}
+
+Check you are in the untrimmed_fastq folder if not move to that directory with the following:
+~~~
+$ cd ~/shell_data/untrimmed_fastq/
+~~~
+{: .bash}
+
+Then remake the backup folder and make a backup copy of the fastq
+~~~
+mkdir backup
+cp SRR098026.fastq backup/SRR098026-backup.fastq
+cp SRR097977.fastq backup/SRR097977-backup.fastq
+cd backup
 ~~~
 {: .bash}
 
@@ -230,7 +244,8 @@ $ ls -l
 {: .bash}
 
 ~~~
--r--r--r-- 1 csuser csuser 43332 Oct 27 15:17 SRR098026-backup.fastq
+-rw-r--r-- 1 csuser csuser 47552 Nov  9 17:34 SRR097977-backup.fastq
+-r--r--r-- 1 csuser csuser 43332 Nov  9 17:16 SRR098026-backup.fastq
 ~~~
 {: .output}
 
@@ -245,7 +260,8 @@ $ ls -l
 >> {: .bash}
 >>
 >> ~~~
->> -r--r--r-- 1 csuser csuser 47552 Oct 27 15:17 SRR097977-backup.fastq
+>> -r--r--r-- 1 csuser csuser 47552 Nov  9 17:34 SRR097977-backup.fastq
+>> -r--r--r-- 1 csuser csuser 43332 Nov  9 17:16 SRR098026-backup.fastq
 >> ~~~
 >> {: .output}
 > {: .solution}
@@ -258,7 +274,7 @@ We had to type `bash` because we needed to tell the computer what program to use
 First, let's move back to our `~/shell_data/untrimmed_fastq` working directory using `cd` and look at the current permissions for `bad-read-scripts.sh` .
 
 ~~~
-$ cd ~/shell_data/untrimmed_fastq
+$ cd ../
 $ ls -l bad-reads-script.sh
 ~~~
 {: .bash}
@@ -409,7 +425,7 @@ using a transfer program, it needs to be installed on your local machine, not yo
 between computers. The simplest way to use `scp` is to run it in your local terminal,
 and use it to copy a single file:
 
-If you are using a Windows machine, you should be able to use scp as long as you have Git Bash/Git for Windows installed. 
+If you are using a Windows machine, you should be able to use scp as long as you have Git Bash/Git for Windows installed.
 Just make sure you run the commands below in a Git Bash terminal and not the built-in Windows terminal.
 
 ~~~
@@ -434,7 +450,7 @@ $ scp <AWS instance> <local file>
 
 > ## What is your AWS instance called?
 > The address you should use for you AWS instance has two main parts: your login credentials and your file path.
-> - the first part will look something like `instance01-gc-cloud-span.york.ac.uk`. You can find this address in the command you were given to login to the AMI, which you can see by scrolling up to the beginning of today's session.
+> - the first part will use your instance name you logged in with so if you with the username csuser at the beginning so  `csuser@instance01-gc-cloud-span.york.ac.uk`. You can find this address in the command you were given to login to the AMI, which you can see by scrolling up to the beginning of today's session.
 > - the second part is the file path where you want to send/download your file, for example `/home/csuser`.
 > - the two parts are separated by a colon with **no** spaces.
 {: .callout}
@@ -442,11 +458,18 @@ $ scp <AWS instance> <local file>
 ### Uploading Data to your Virtual Machine with scp
 
 Open the terminal/GitBash and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory **(make sure you substitute `csuser@ip.address` with your remote login credentials)**:
-                                                      
+
 ~~~
 $  scp local_file.txt csuser@ip.address:/home/csuser/
 ~~~
 {: .bash}
+
+If you were using instance01 and copying the file test.txt the command would look like this. Note this presumes that the file test.txt is in the directory you are currently in. You also need to use scp in a window that is not logged onto the instance:
+
+~~~
+$  scp test.txt csuser@instance01-gc-cloud-span.york.ac.uk:/home/csuser/
+~~~
+
 
 **Tip:** you should be running this command while in the same folder as the file you want to send (local_file.txt). If you aren't, then you need to specify the path in your command.
 

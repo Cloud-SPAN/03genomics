@@ -78,7 +78,7 @@ curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fa
 {: .callout}
 
 
-The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format.
+The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format. While the data is mid transfer you will not see your prompt $, please do not try and restart the command, or enter the command twice because you might overwrite and corrupt the files
 
 ~~~
 $ gunzip SRR2584863_1.fastq.gz
@@ -501,14 +501,13 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp csuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/cs_course/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+$ scp csuser@instance01-gc-cloud-span.york.ac.uk:~/cs_course/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
 ~~~
 {: .bash}
 
 As a reminder, the first part
-of the command `csuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
-the address for your remote computer. Make sure you replace everything
-after `csuser@` with your instance number (the one you used to log in).
+of the command `csuser@instance01-gc-cloud-span.york.ac.uk` is
+the address for your remote computer. Make sure you replace the instance number with the one you used to log in.
 
 The second part starts with a `:` and then gives the absolute path
 of the files you want to transfer from your remote computer. Don't

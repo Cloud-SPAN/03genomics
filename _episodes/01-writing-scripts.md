@@ -450,7 +450,7 @@ $ scp <AWS instance> <local file>
 
 > ## What is your AWS instance called?
 > The address you should use for you AWS instance has two main parts: your login credentials and your file path.
-> - the first part will use your instance name you logged in with so if you with the username csuser at the beginning so  `csuser@instance01-gc-cloud-span.york.ac.uk`. You can find this address in the command you were given to login to the AMI, which you can see by scrolling up to the beginning of today's session.
+> - the first part will use the instance name you logged in with plus the username csuser at the beginning - e.g.  `csuser@instance01-gc-cloud-span.york.ac.uk`. You can find this address in the command you were given to login to the AMI, which you can see by scrolling up to the beginning of today's session.
 > - the second part is the file path where you want to send/download your file, for example `/home/csuser`.
 > - the two parts are separated by a colon with **no** spaces.
 {: .callout}

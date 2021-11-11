@@ -1,23 +1,23 @@
 ---
-title: "Project Organization"
+title: "Project organisation"
 teaching: 15
 exercises: 15
 questions:
-- "How can I organize my file system for a new bioinformatics project?"
+- "How can I organise my file system for a new bioinformatics project?"
 - "How can I document my work?"
 objectives:
 - "Create a file system for a bioinformatics project."
 - "Explain what types of files should go in your `docs`, `data`, and `results` directories."
 - "Use the `history` command and a text editor like `nano` to document your work on your project."
 keypoints:
-- "Spend the time to organize your file system when you start a new project. Your future self will thank you!"
+- "Spend the time to organise your file system when you start a new project. Your future self will thank you!"
 - "Always save a write-protected copy of your raw data."
 ---
 
 # Getting your project started
 
-Project organization is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
-excitement of getting a first look at new data. Of course, while it's best to get yourself organized before you even begin your analyses,
+Project organisation is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
+excitement of getting a first look at new data. Of course, while it's best to get yourself organised before you even begin your analyses,
 it's never too late to start, either.  
 
 You should approach your sequencing project similarly to how you do a biological experiment and this ideally begins with experimental design. We're going to assume that you've already designed a beautiful
@@ -114,7 +114,7 @@ cs_course/results:
 ~~~
 {: .output}
 
-# Organizing your files
+# organising your files
 
 Before beginning any analysis, it's important to save a copy of your
 raw data. The raw data should never be changed. Regardless of how
@@ -282,4 +282,4 @@ going to have many more opportunities for practice as we move forward on our
 bioinformatics journey!
 
 ## References
-[A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+[A Quick Guide to organising Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)

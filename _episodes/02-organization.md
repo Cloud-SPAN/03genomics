@@ -1,23 +1,23 @@
 ---
-title: "Project Organization"
+title: "Project organisation"
 teaching: 15
 exercises: 15
 questions:
-- "How can I organize my file system for a new bioinformatics project?"
+- "How can I organise my file system for a new bioinformatics project?"
 - "How can I document my work?"
 objectives:
 - "Create a file system for a bioinformatics project."
 - "Explain what types of files should go in your `docs`, `data`, and `results` directories."
 - "Use the `history` command and a text editor like `nano` to document your work on your project."
 keypoints:
-- "Spend the time to organize your file system when you start a new project. Your future self will thank you!"
+- "Spend the time to organise your file system when you start a new project. Your future self will thank you!"
 - "Always save a write-protected copy of your raw data."
 ---
 
 # Getting your project started
 
-Project organization is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
-excitement of getting a first look at new data. Of course, while it's best to get yourself organized before you even begin your analyses,
+Project organisation is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
+excitement of getting a first look at new data. Of course, while it's best to get yourself organised before you even begin your analyses,
 it's never too late to start, either.  
 
 You should approach your sequencing project similarly to how you do a biological experiment and this ideally begins with experimental design. We're going to assume that you've already designed a beautiful
@@ -63,7 +63,7 @@ $ pwd
 You should see the output:
 
 ~~~
-/home/dcuser  
+/home/csuser  
 ~~~
 {: .output}
 
@@ -74,18 +74,18 @@ You should see the output:
 
 > ## Exercise  
 > Use the `mkdir` command to make the following directories:   
-> - `dc_workshop`
-> - `dc_workshop/docs`
-> - `dc_workshop/data`
-> - `dc_workshop/results`
+> - `cs_course`
+> - `cs_course/docs`
+> - `cs_course/data`
+> - `cs_course/results`
 >
 > > ## Solution
 > >
 > > ~~~
-> > $ mkdir dc_workshop
-> > $ mkdir dc_workshop/docs
-> > $ mkdir dc_workshop/data
-> > $ mkdir dc_workshop/results
+> > $ mkdir cs_course
+> > $ mkdir cs_course/docs
+> > $ mkdir cs_course/data
+> > $ mkdir cs_course/results
 > > ~~~
 > > {: .bash}
 > {: .solution}
@@ -96,25 +96,25 @@ Use `ls -R` to verify that you have created these directories. The `-R` option f
 iteratively.
 
 ~~~
-$ ls -R dc_workshop
+$ ls -R cs_course
 ~~~
 {: .bash}
 
 You should see the following output:
 
 ~~~
-dc_workshop/:
+cs_course/:
 data  docs  results
 
-dc_workshop/data:
+cs_course/data:
 
-dc_workshop/docs:
+cs_course/docs:
 
-dc_workshop/results:
+cs_course/results:
 ~~~
 {: .output}
 
-# Organizing your files
+# organising your files
 
 Before beginning any analysis, it's important to save a copy of your
 raw data. The raw data should never be changed. Regardless of how
@@ -171,12 +171,12 @@ $ history | tail -n 7
 
 > ## Exercise
 > Using your knowledge of the shell, use the append redirect `>>` to create a file called
-> `dc_workshop_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
-> `dc_workshop_log_2017_10_27.sh`)  
+> `cs_course_log_XXXX_XX_XX.sh` which contains your last 7 commands. (Use the four-digit year, two-digit month, and two digit day, e.g.
+> `cs_course_log_2021_10_27.sh`)  
 > >
 > > ## Solution
 > > ~~~
-> > $ history | tail -n 7 >> dc_workshop_log_2017_10_27.sh
+> > $ history | tail -n 7 >> cs_course_log_2021_10_27.sh
 > > ~~~
 > > {: .bash}
 > > Note we used the last 7 lines as an example, the number of lines may vary.
@@ -187,11 +187,11 @@ You may have noticed that your history contains the `history` command itself. To
 from our log, let's use the `nano` text editor to fix the file:  
 
 ~~~
-$ nano dc_workshop_log_2017_10_27.sh
+$ nano cs_course_log_2021_10_27.sh
 ~~~
 {: .bash}
 
-(Remember to replace the `2017_10_27` with your workshop date.)
+(Remember to replace the `2021_10_27` with your workshop date.)
 
 From the `nano` screen, you can use your cursor to navigate, type, and delete any redundant lines.   
 
@@ -216,57 +216,59 @@ Add a date line and comment to the line where you have created the directory. Re
 text on a line after a `#` is ignored by bash when evaluating the text as code. For example:   
 
 ~~~
-# 2017_10_27   
+# 2021_10_27   
 # Created sample directories for the Data Carpentry workshop  
 ~~~
 {: .bash}
 
-Next, remove any lines of the history that are not relevant by navigating to those lines and using your
-delete key. Save your file and close `nano`.
+Next, remove any lines of the history that are not relevant by navigating to those lines and using your delete key.
+You will also need to delete the line numbers at the start of each line.
+Save your file and close `nano`.
 
 Your file should look something like this:
 
 ~~~
-# 2017_10_27
+# 2021_10_27
 # Created sample directories for the Data Carpentry workshop
 
-mkdir dc_workshop
-mkdir dc_workshop/docs
-mkdir dc_workshop/data
-mkdir dc_workshop/results
+mkdir cs_course
+mkdir cs_course/docs
+mkdir cs_course/data
+mkdir cs_course/results
 ~~~
 {: .output}
 
 If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
-your `dc_workshop` directory and all of its subdirectories. Look at your directory
+your `cs_course` directory and all of its subdirectories. Look at your directory
 contents to verify the directory is gone.
+**Make sure your log is not in the directory you're about to delete! If it is, use `mv [log-name] /home/csuser` to move it into your home directory.** 
 
 ~~~
-$ rm -r dc_workshop
+$ rm -r cs_course
 $ ls
 ~~~
 {: .bash}
 
 ~~~
-shell_data	dc_workshop_log_2017_10_27.sh
+shell_data	cs_course_log_2021_10_27.sh
 ~~~
 {: .output}
 
-Then run your workshop log file as a bash script. You should see the `dc_workshop`
+Then run your workshop log file as a bash script. You should see the `cs_course`
 directory and all of its subdirectories reappear.
 
 ~~~
-$ bash dc_workshop_log_2017_10_27.sh
+$ bash cs_course_log_2021_10_27.sh
 $ ls
 ~~~
 {: .bash}
 
 ~~~
-shell_data	dc_workshop dc_workshop_log_2017_10_27.sh
+shell_data	cs_course cs_course_log_2021_10_27.sh
 ~~~
 {: .output}
 
-It's important that we keep our workshop log file outside of our `dc_workshop` directory
+It's important that we keep our workshop log file outside of our `cs_course` directory
 if we want to use it to recreate our work. It's also important for us to keep it up to
 date by regularly updating with the commands that we used to generate our results files.
 
@@ -280,4 +282,4 @@ going to have many more opportunities for practice as we move forward on our
 bioinformatics journey!
 
 ## References
-[A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+[A Quick Guide to organising Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)

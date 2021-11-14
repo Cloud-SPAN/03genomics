@@ -184,9 +184,30 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 ### File Permissions
 
-We've now made a backup copy of our file in a previous episode, but just because we have two copies, it doesn't make us safe. We can still accidentally delete or
-overwrite both copies. To make sure we can't accidentally mess up this backup file, we're going to change the permissions on the file so
-that we're only allowed to read (i.e. view) the file, not write to it (i.e. make new changes).
+We made a backup copy of our files in a previous episode, but then removed the folder and the backup fastq file in order to practise removing files. We would like to make sure we can't accidentally mess up or remove these backup file, so we're going to change the permissions on the files so
+that we're only allowed to read (i.e. view) them, not write to them (i.e. make new changes).
+
+We need to remake the  backup folder we made earlier, make sure you are in the untrimmed_fastq folder:
+
+~~~
+$pwd
+~~~
+{: .bash}
+
+Check you are in the untrimmed_fastq folder if not move to that directory with the following:
+~~~
+$ cd ~/shell_data/untrimmed_fastq/
+~~~
+{: .bash}
+
+Then remake the backup folder and make a backup copy of the fastq
+~~~
+mkdir backup
+cp SRR098026.fastq backup/SRR098026-backup.fastq
+cp SRR097977.fastq backup/SRR097977-backup.fastq
+cd backup
+~~~
+{: .bash}
 
 View the current permissions on a file using the `-l` (long) flag for the `ls` command:
 
@@ -196,7 +217,8 @@ $ ls -l
 {: .bash}
 
 ~~~
--rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-rw-r--r-- 1 csuser csuser 47552 Oct 27 15:17 SRR097977-backup.fastq
+-rw-r--r-- 1 csuser csuser 43332 Oct 27 15:17 SRR098026-backup.fastq
 ~~~
 {: .output}
 
@@ -213,7 +235,7 @@ indicates that you have permission to write to (i.e. make changes to) the file, 
 don't have permission to carry out the ability encoded by that space (this is the space where `x` or executable ability is stored, we'll
 talk more about this in [a later lesson](http://www.datacarpentry.org/shell-genomics/05-writing-scripts/)).
 
-Our goal for now is to change permissions on this file so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
+Our goal for now is to change permissions on one of our files so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
 
 ~~~
 $ chmod -w SRR098026-backup.fastq
@@ -222,23 +244,43 @@ $ ls -l
 {: .bash}
 
 ~~~
--r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-rw-r--r-- 1 csuser csuser 47552 Nov  9 17:34 SRR097977-backup.fastq
+-r--r--r-- 1 csuser csuser 43332 Nov  9 17:16 SRR098026-backup.fastq
 ~~~
 {: .output}
 
+> ## Exercise
+> Now repeat what we just did for your other backup file.
+>
+>> ## Solution
+>> ~~~
+>> $ chmod -w SRR097977-backup.fastq
+>> $ ls -l
+>> ~~~
+>> {: .bash}
+>>
+>> ~~~
+>> -r--r--r-- 1 csuser csuser 47552 Nov  9 17:34 SRR097977-backup.fastq
+>> -r--r--r-- 1 csuser csuser 43332 Nov  9 17:16 SRR098026-backup.fastq
+>> ~~~
+>> {: .output}
+> {: .solution}
+{: .challenge}
+
 ## Making the script into a program
 
-We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We are going to use the SRR098026-backup.fastq we generated in [an earlier episode](http://www.datacarpentry.org/shell-genomics/03-working-with-files/).
+We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We are going to use the `bad-read-scripts.sh` file we generated earlier in the episode.
 
-First, let's look at the current permissions.
+First, let's move back to our `~/shell_data/untrimmed_fastq` working directory using `cd` and look at the current permissions for `bad-read-scripts.sh` .
 
 ~~~
+$ cd ../
 $ ls -l bad-reads-script.sh
 ~~~
 {: .bash}
 
 ~~~
--rw-rw-r-- 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
+-rw-rw-r-- 1  csuser 0 Oct 25 21:46 bad-reads-script.sh
 ~~~
 {: .output}
 
@@ -257,7 +299,7 @@ $ ls -l bad-reads-script.sh
 {: .bash}
 
 ~~~
--rwxrwxr-x 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
+-rwxrwxr-x 1 csuser csuser 0 Oct 25 21:46 bad-reads-script.sh
 ~~~
 {: .output}
 
@@ -270,7 +312,7 @@ $ ./bad-reads-script.sh
 
 The script should run the same way as before, but now we've created our very own computer program!
 
-You will learn more about writing scripts in [a later lesson](https://datacarpentry.org/wrangling-genomics/05-automation/index.html).
+You will learn more about writing scripts in [a later lesson](https://cloud-span.github.io/genomics05-data-processing-analysis/03-automation/index.html).
 
 ## Moving and Downloading Data
 
@@ -335,6 +377,11 @@ $
 
 This output means that you have ``curl`` installed, but not ``wget``.
 
+Another possibility is that you will get an output which says
+`no wget in...` followed by a list of file paths where wget was not found. Either way, it should be obvious which of the two you have installed.
+
+If you run these commands in the Cloud-SPAN AMI you will find that both are installed so you can use either.
+
 Once you know whether you have ``curl`` or ``wget``, use one of the
 following commands to download the file:
 
@@ -372,19 +419,14 @@ using a transfer program, it needs to be installed on your local machine, not yo
 
 ## Transferring Data Between your Local Machine and the Cloud
 
-These directions are platform specific, so please follow the instructions for your system:
-
-**Please select the platform you wish to use for the exercises: <select id="id_platform" name="platformlist" onchange="change_content_by_platform('id_platform');return false;"><option value="unix" id="id_unix" selected> UNIX </option><option value="win" id="id_win" selected> Windows </option></select>**
-
-
-
-<div id="div_unix" style="display:block" markdown="1">
-
-### Uploading Data to your Virtual Machine with scp
+### Using scp for file transfer
 
 `scp` stands for 'secure copy protocol', and is a widely used UNIX tool for moving files
 between computers. The simplest way to use `scp` is to run it in your local terminal,
 and use it to copy a single file:
+
+If you are using a Windows machine, you should be able to use scp as long as you have Git Bash/Git for Windows installed.
+Just make sure you run the commands below in a Git Bash terminal and not the built-in Windows terminal.
 
 ~~~
 scp <file I want to move> <where I want to move it>
@@ -406,114 +448,40 @@ $ scp <AWS instance> <local file>
 ~~~
 {: .bash}
 
-#### Uploading Data to your Virtual Machine with scp
+> ## What is your AWS instance called?
+> The address you should use for you AWS instance has two main parts: your login credentials and your file path.
+> - the first part will use the instance name you logged in with plus the username csuser at the beginning - e.g.  `csuser@instance01-gc-cloud-span.york.ac.uk`. You can find this address in the command you were given to login to the AMI, which you can see by scrolling up to the beginning of today's session.
+> - the second part is the file path where you want to send/download your file, for example `/home/csuser`.
+> - the two parts are separated by a colon with **no** spaces.
+{: .callout}
 
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory:
+### Uploading Data to your Virtual Machine with scp
+
+Open the terminal/GitBash and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory **(make sure you substitute `csuser@ip.address` with your remote login credentials)**:
 
 ~~~
-$  scp local_file.txt dcuser@ip.address:/home/dcuser/
+$  scp local_file.txt csuser@ip.address:/home/csuser/
 ~~~
 {: .bash}
 
-#### Downloading Data from your Virtual Machine with scp
+If you were using instance01 and copying the file test.txt the command would look like this. Note this presumes that the file test.txt is in the directory you are currently in. You also need to use scp in a window that is not logged onto the instance:
+
+~~~
+$  scp test.txt csuser@instance01-gc-cloud-span.york.ac.uk:/home/csuser/
+~~~
+
+
+**Tip:** you should be running this command while in the same folder as the file you want to send (local_file.txt). If you aren't, then you need to specify the path in your command.
+
+### Downloading Data from your Virtual Machine with scp
 
 Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/shell_data/scripted_bad_reads.txt.
 
-**Tip:** If you are looking for another (or any really) text file in your home directory to use instead, try:
+Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute `csuser@ip.address` with your remote login credentials)**:
 
 ~~~
-$ find ~ -name *.txt
-~~~
-{: .bash}
-
-
-Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute dcuser@ip.address with your remote login credentials)**:
-
-~~~
-$ scp dcuser@ip.address:/home/dcuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
+$ scp csuser@ip.address:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
 ~~~
 {: .bash}
 
 Remember that in both instances, the command is run from your local machine, we've just flipped the order of the to and from parts of the command.
-</div>
-
-
-<div id="div_win" style="display:block" markdown="1">
-
-### Uploading Data to your Virtual Machine with SCP within Git Bash
-
-If you are using a Windows machine, you should be able to use scp as long as you have Git Bash/Git for Windows installed.
-
-Once installed, you can open a new terminal by running the program Git Bash from the Windows start menu.
-
-1. Make sure that you have *scp* installed:
-
-~~~
-$ man scp
-~~~
-{: .bash}
-
-2. Open the Git Bash terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory. When using Git Bash, the commands follow those of the Unix platform:
-
-~~~
-$  scp local_file.txt dcuser@ip.address:/home/dcuser/
-~~~
-{: .bash}
-
-### Uploading Data to your Virtual Machine with scp
-
-`scp` stands for 'secure copy protocol', and is a widely used UNIX tool for moving files
-between computers. The simplest way to use `scp` is to run it in your local terminal,
-and use it to copy a single file:
-
-~~~
-scp <file I want to move> <where I want to move it>
-~~~
-{: .bash}
-
-Note that you are always running `scp` locally, but that *doesn't* mean that
-you can only move files from your local computer. In order to move a file from your local computer to an AWS instance, the command would look like this:
-
-~~~
-$ scp <local file> <AWS instance>
-~~~
-{: .bash}
-
-To move it back to your local computer, you re-order the `to` and `from` fields:
-
-~~~
-$ scp <AWS instance> <local file>
-~~~
-{: .bash}
-
-### Uploading Data to your Virtual Machine with scp
-
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory:
-
-~~~
-$  scp local_file.txt dcuser@ip.address:/home/dcuser/
-~~~
-{: .bash}
-
-### Downloading Data from your Virtual Machine with git bash installed scp
-
-Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/shell_data/scripted_bad_reads.txt.
-
-**Tip:** If you are looking for another (or any really) text file in your home directory to use instead, try:
-
-~~~
-$ find ~ -name *.txt
-~~~
-{: .bash}
-
-
-Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute dcuser@ip.address with your remote login credentials)**:
-
-~~~
-$ scp dcuser@ip.address:/home/dcuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
-~~~
-{: .bash}
-
-Remember that in both instances, the command is run from your local machine, we've just flipped the order of the to and from parts of the command.
-
-</div>

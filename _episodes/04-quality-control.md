@@ -22,7 +22,7 @@ tools in a specified order is commonly referred to as a *workflow* or a *pipelin
 An example of the workflow we will be using for our variant calling analysis is provided below with a brief
 description of each step.
 
-![workflow](/img/variant_calling_workflow.png)
+![workflow](../img/variant_calling_workflow.png)
 
 
 1. Quality control - Assessing quality using FastQC
@@ -51,8 +51,8 @@ Here we are using the `-p` option for `mkdir`. This option allows `mkdir` to cre
 
 It will take about 15 minutes to download the files.
 ~~~
-mkdir -p ~/dc_workshop/data/untrimmed_fastq/
-cd ~/dc_workshop/data/untrimmed_fastq
+mkdir -p ~/cs_course/data/untrimmed_fastq/
+cd ~/cs_course/data/untrimmed_fastq
 
 curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_1.fastq.gz
 curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_2.fastq.gz
@@ -65,7 +65,7 @@ curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fa
 
 > ## Faster option
 >
-> If your workshop is short on time or the venue's internet connection is weak or unstable, learners can
+> If we are running short on time or your internet connection is weak or unstable, learners can
 > avoid needing to download the data and instead use the data files provided in the `.backup/` directory.
 >
 > ~~~
@@ -78,7 +78,7 @@ curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fa
 {: .callout}
 
 
-The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format.
+The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format. While the data is mid transfer you will not see your prompt $, please do not try and restart the command, or enter the command twice because you might overwrite and corrupt the files
 
 ~~~
 $ gunzip SRR2584863_1.fastq.gz
@@ -89,7 +89,7 @@ $ gunzip SRR2584863_1.fastq.gz
 
 We will now assess the quality of the sequence reads contained in our fastq files.
 
-![workflow_qc](/img/var_calling_workflow_qc.png)
+![workflow_qc](../img/var_calling_workflow_qc.png)
 ## Details on the FASTQ format
 
 Although it looks complicated (and it is), we can understand the
@@ -166,7 +166,7 @@ very poor (`#` = a quality score of 2).
 > ## Exercise
 >
 > What is the last read in the `SRR2584863_1.fastq ` file? How confident
-> are you in this read?
+> are you in the accuracy of this read?
 >
 >> ## Solution
 >> ~~~
@@ -331,7 +331,7 @@ analyses. Rather than looking at quality scores for each individual read, FastQC
 quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates
 a very high quality sample:
 
-![good_quality](/img/good_quality1.8.png)
+![good_quality](../img/good_quality1.8.png)
 
 The x-axis displays the base position in the read, and the y-axis shows quality scores. In this
 example, the sample contains reads that are 40 bp long. This is much shorter than the reads we
@@ -348,7 +348,7 @@ acceptable (yellow), and bad (red) quality scores.
 
 Now let's take a look at a quality plot on the other end of the spectrum.
 
-![bad_quality](/img/bad_quality1.8.png)
+![bad_quality](../img/bad_quality1.8.png)
 
 Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above.
 
@@ -357,7 +357,7 @@ Here, we see positions within the read in which the boxes span a much wider rang
 We will now assess the quality of the reads that we downloaded. First, make sure you're still in the `untrimmed_fastq` directory
 
 ~~~
-$ cd ~/dc_workshop/data/untrimmed_fastq/
+$ cd ~/cs_course/data/untrimmed_fastq/
 ~~~
 {: .bash}
 
@@ -375,12 +375,12 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> {: .bash}
 >>
 >> ~~~
->> -rw-rw-r-- 1 dcuser dcuser 545M Jul  6 20:27 SRR2584863_1.fastq
->> -rw-rw-r-- 1 dcuser dcuser 183M Jul  6 20:29 SRR2584863_2.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 309M Jul  6 20:34 SRR2584866_1.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 296M Jul  6 20:37 SRR2584866_2.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 SRR2589044_1.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 SRR2589044_2.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 545M Jul  6 20:27 SRR2584863_1.fastq
+>> -rw-rw-r-- 1 csuser csuser 183M Jul  6 20:29 SRR2584863_2.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 309M Jul  6 20:34 SRR2584866_1.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 296M Jul  6 20:37 SRR2584866_2.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 124M Jul  6 20:22 SRR2589044_1.fastq.gz
+>> -rw-rw-r-- 1 csuser csuser 128M Jul  6 20:24 SRR2589044_2.fastq.gz
 >> ~~~
 >> {: .output}
 >>
@@ -456,9 +456,9 @@ will move these
 output files into a new directory within our `results/` directory.
 
 ~~~
-$ mkdir -p ~/dc_workshop/results/fastqc_untrimmed_reads
-$ mv *.zip ~/dc_workshop/results/fastqc_untrimmed_reads/
-$ mv *.html ~/dc_workshop/results/fastqc_untrimmed_reads/
+$ mkdir -p ~/cs_course/results/fastqc_untrimmed_reads
+$ mv *.zip ~/cs_course/results/fastqc_untrimmed_reads/
+$ mv *.html ~/cs_course/results/fastqc_untrimmed_reads/
 ~~~
 {: .bash}
 
@@ -466,7 +466,7 @@ Now we can navigate into this results directory and do some closer
 inspection of our output files.
 
 ~~~
-$ cd ~/dc_workshop/results/fastqc_untrimmed_reads/
+$ cd ~/cs_course/results/fastqc_untrimmed_reads/
 ~~~
 {: .bash}
 
@@ -501,14 +501,13 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+$ scp csuser@instance01-gc-cloud-span.york.ac.uk:~/cs_course/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
 ~~~
 {: .bash}
 
 As a reminder, the first part
-of the command `dcuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
-the address for your remote computer. Make sure you replace everything
-after `dcuser@` with your instance number (the one you used to log in).
+of the command `csuser@instance01-gc-cloud-span.york.ac.uk` is
+the address for your remote computer. Make sure you replace the instance number with the one you used to log in.
 
 The second part starts with a `:` and then gives the absolute path
 of the files you want to transfer from your remote computer. Don't
@@ -568,11 +567,11 @@ We've now looked at quite a few "Per base sequence quality" FastQC graphs, but t
 Now that we've looked at our HTML reports to get a feel for the data,
 let's look more closely at the other output files. Go back to the tab
 in your terminal program that is connected to your AWS instance
-(the tab label will start with `dcuser@ip`) and make sure you're in
+(the tab label will start with `csuser@ip`) and make sure you're in
 our results subdirectory.
 
 ~~~
-$ cd ~/dc_workshop/results/fastqc_untrimmed_reads/
+$ cd ~/cs_course/results/fastqc_untrimmed_reads/
 $ ls
 ~~~
 {: .bash}
@@ -741,10 +740,10 @@ us whether this sample passed, failed, or is borderline (`WARN`). Remember, to q
 We can make a record of the results we obtained for all our samples
 by concatenating all of our `summary.txt` files into a single file
 using the `cat` command. We'll call this `fastqc_summaries.txt` and move
-it to `~/dc_workshop/docs`.
+it to `~/cs_course/docs`.
 
 ~~~
-$ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
+$ cat */summary.txt > ~/cs_course/docs/fastqc_summaries.txt
 ~~~
 {: .bash}
 
@@ -758,7 +757,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 >> We can get the list of all failed tests using `grep`.
 >>
 >> ~~~
->> $ cd ~/dc_workshop/docs
+>> $ cd ~/cs_course/docs
 >> $ grep FAIL fastqc_summaries.txt
 >> ~~~
 >> {: .bash}

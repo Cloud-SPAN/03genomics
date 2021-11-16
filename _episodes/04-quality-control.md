@@ -39,7 +39,7 @@ built under the assumption that the data will be provided in a specific format.
 
 # Starting with Data
 
-Often times, the first step in a bioinformatic workflow is getting the data you want to work with onto a computer where you can work with it. If you have outsourced sequencing of your data, the sequencing center will usually provide you with a link that you can use to download your data. Today we will be working with publicly available sequencing data.
+Often times, the first step in a bioinformatics workflow is getting the data you want to work with onto a computer where you can work with it. If you have outsourced sequencing of your data, the sequencing center will usually provide you with a link that you can use to download your data. Today we will be working with publicly available sequencing data.
 
 We are studying a population of *Escherichia coli* (designated Ara-3), which were propagated for more than 50,000 generations in a glucose-limited minimal medium. We will be working with three samples from this experiment, one from 5,000 generations, one from 15,000 generations, and one from 50,000 generations. The population changed substantially during the course of the experiment, and we will be exploring how with our variant calling workflow.
 
@@ -47,7 +47,7 @@ The data are paired-end, so we will download two files for each sample. We will 
 
 To download the data, run the commands below.
 
-Here we are using the `-p` option for `mkdir`. This option allows `mkdir` to create the new directory, even if one of the parent directories doesn't already exist. It also supresses errors if the directory already exists, without overwriting that directory.
+Here we are using the `-p` option for `mkdir`. This option allows `mkdir` to create the new directory, even if one of the parent directories doesn't already exist. It also suppresses errors if the directory already exists, without overwriting that directory.
 
 It will take about 15 minutes to download the files.
 ~~~
@@ -167,6 +167,8 @@ very poor (`#` = a quality score of 2).
 >
 > What is the last read in the `SRR2584863_1.fastq ` file? How confident
 > are you in the accuracy of this read?
+>
+> Share your answers in the Padlet.
 >
 >> ## Solution
 >> ~~~
@@ -538,9 +540,12 @@ in your file browser.
 
 > ## Exercise
 >
-> Discuss your results on the padlet. Which sample(s) looks the best
-> in terms of per base sequence quality? Which sample(s) look the
-> worst?
+> Discuss your results in your breakout room. Use these questions to help:
+>
+> - Which sample(s) looks the best in terms of per base sequence quality? 
+> - Which sample(s) look the worst?
+>
+> Nominate someone from your group to post a summary of your discussions on the Padlet.
 >
 >> ## Solution
 >> All of the reads contain usable data, but the quality decreases toward

@@ -149,7 +149,7 @@ analyses. Luckily, it's even easier to record the steps you've
 carried out computational than it is when working at the bench.
 
 The `history` command is a convenient way to document all the
-commands you have used while analyzing and manipulating your project
+commands you have used while analysing and manipulating your project
 files. Let's document the work we have done on our project so far.
 
 View the commands that you have used so far during this session using `history`:

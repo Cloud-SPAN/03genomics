@@ -34,7 +34,7 @@ description of each step.
 These workflows in bioinformatics adopt a plug-and-play approach in that the output of one tool can be easily
 used as input to another tool without any extensive configuration. Having standards for data formats is what
 makes this feasible. Standards ensure that data is stored in a way that is generally accepted and agreed upon
-within the community. The tools that are used to analyze data at different stages of the workflow are therefore
+within the community. The tools that are used to analyse data at different stages of the workflow are therefore
 built under the assumption that the data will be provided in a specific format.
 
 # Starting with Data
@@ -540,7 +540,7 @@ in your file browser.
 
 > ## Exercise
 >
-> Discuss your results in your breakout room. Use these questions to help:
+> If you are attending an instructor-led workshop, discuss your results in your breakout room. Use these questions to help:
 >
 > - Which sample(s) looks the best in terms of per base sequence quality? 
 > - Which sample(s) look the worst?

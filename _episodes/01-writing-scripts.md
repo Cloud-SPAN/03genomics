@@ -454,7 +454,7 @@ You tell the instance to look for your login key using the flag `-i`.
 
 > ## What is your AWS instance called?
 > The address you should use for your AWS instance has two main parts: your login credentials and your file path.
-> - the first part has the format `csuser@instanceNN.cloud-span.york.aws.ac.uk` where `NN` is replaced by your instance's unique number.
+> - the first part has the format `csuser@instanceNN-gc.cloud-span.aws.york.ac.uk` where `NN` is replaced by your instance's unique number.
 > - the second part is the file path where you want to send/download your file, for example `/home/csuser/`.
 > - the two parts are separated by a colon with **no** spaces.
 {: .callout}
@@ -464,14 +464,14 @@ You tell the instance to look for your login key using the flag `-i`.
 Open a new terminal/GitBash window and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory **(make sure you substitute `instanceNN` with your instance's number)**:
 
 ~~~
-$  scp -i login-key-instanceNN.pem local_file.txt csuser@instanceNN.cloud-span.york.aws.ac.uk/home/csuser/
+$  scp -i login-key-instanceNN-gc.pem local_file.txt csuser@instanceNN-gc.cloud-span.aws.york.ac.uk/home/csuser/
 ~~~
 {: .bash}
 
 If you were using `instance01` and copying the file `test.txt` the command would look like this. Note this presumes that the file `test.txt` **and** the login key file are in the directory you are currently in. You also need to use scp in a window that is not logged onto the instance:
 
 ~~~
-$  scp -i login-key-instance01.pem test.txt csuser@instance01.cloud-span.york.aws.ac.uk:/home/csuser/
+$  scp -i login-key-instance01.pem test.txt csuser@instance01-gc.cloud-span.aws.york.ac.uk:/home/csuser/
 ~~~
 
 **Tip:** you should be running this command while in the same folder as the file you want to send (`local_file.txt`). If you aren't, then you need to specify the path in your command. The same goes for your login key file.
@@ -483,7 +483,7 @@ Let's download a text file from our remote machine. You should have a file that 
 Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Downloads directory using the following command **(make sure you substitute `instanceNN` with your instance's number)**:
 
 ~~~
-$ scp -i login-key-instanceNN.pem test.txt csuser@instanceNN.cloud-span.york.aws.ac.uk:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
+$ scp -i login-key-instanceNN.pem test.txt csuser@instanceNN-gc.cloud-span.aws.york.ac.uk:/home/csuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
 ~~~
 {: .bash}
 

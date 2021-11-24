@@ -464,7 +464,7 @@ You tell the instance to look for your login key using the flag `-i`.
 Open a new terminal/GitBash window and use the `scp` command to upload a file (e.g. local_file.txt) to the csuser home directory **(make sure you substitute `instanceNN` with your instance's number)**:
 
 ~~~
-$  scp -i login-key-instanceNN-gc.pem local_file.txt csuser@instanceNN-gc.cloud-span.aws.york.ac.uk/home/csuser/
+$  scp -i login-key-instanceNN.pem test.txt csuser@instanceNN-gc.cloud-span.aws.york.ac.uk:/home/csuser/
 ~~~
 {: .bash}
 

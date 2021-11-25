@@ -503,7 +503,7 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp csuser@instanceNN-gc.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/data/untrimmed_fastq/*html .
+$ scp -i ../login-key-instanceNN.pem csuser@instanceNN-gc.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/data/untrimmed_fastq/*html .
 
 ~~~
 {: .bash}

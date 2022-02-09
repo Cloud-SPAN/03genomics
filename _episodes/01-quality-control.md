@@ -49,30 +49,17 @@ To download the data, run the commands below.
 
 Here we are using the `-p` option for `mkdir`. This option allows `mkdir` to create the new directory, even if one of the parent directories doesn't already exist. It also suppresses errors if the directory already exists, without overwriting that directory.
 
-It will take about 15 minutes to download the files.
 ~~~
 mkdir -p ~/cs_course/data/untrimmed_fastq/
 cd ~/cs_course/data/untrimmed_fastq
-
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_1.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_2.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/003/SRR2584863/SRR2584863_1.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/003/SRR2584863/SRR2584863_2.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_1.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fastq.gz
 ~~~
 {: .bash}
 
-> ## Faster option
->
-> If we are running short on time or your internet connection is weak or unstable, learners can
-> avoid needing to download the data and instead use the data files provided in the `.backup/` directory.
->
-> ~~~
-> $ cp ~/.backup/untrimmed_fastq/*fastq.gz .
-> ~~~
+~~~
+ $ cp ~/.backup/untrimmed_fastq/*fastq.gz .
+~~~
 > {: .bash}
->
+
 > This command creates a copy of each of the files in the `.backup/untrimmed_fastq/` directory that end in `fastq.gz` and
 > places the copies in the current working directory (signified by `.`).
 {: .callout}
@@ -192,8 +179,8 @@ very poor (`#` = a quality score of 2).
 > {: .solution}
 {: .challenge}
 
-At this point, lets validate that all the relevant tools are installed. If you are using the AWS AMI then these _should_ be preinstalled.
-
+ We can use the -h flag to show us what parameters are available for the fastqc tool
+ 
 ~~~
 $ fastqc -h
             FastQC - A high throughput sequence QC analysis tool
@@ -544,7 +531,7 @@ in your file browser.
 >
 > If you are attending an instructor-led workshop, discuss your results in your breakout room. Use these questions to help:
 >
-> - Which sample(s) looks the best in terms of per base sequence quality? 
+> - Which sample(s) looks the best in terms of per base sequence quality?
 > - Which sample(s) look the worst?
 >
 > Nominate someone from your group to post a summary of your discussions on the Padlet.

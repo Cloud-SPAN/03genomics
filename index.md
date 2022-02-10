@@ -4,7 +4,7 @@ layout: lesson
 
 {% include gh_variables.html %}
 
-In a [previous lesson](https://cloud-span.github.io/genomics03-using-the-command-line/), you learned how to use the bash shell to interact with your computer through a command line interface. In this 
+In [the Prenomics course](https://cloud-span.github.io/prenomics00-intro/) and in a [previous lesson](https://cloud-span.github.io/02genomics/01-writing-scripts/index.html), you learned how to use the bash shell to interact with your computer through a command line interface. In this 
 lesson and the next, you will learn more about applying this new knowledge to begin a common genomics workflow - identifying variants among sequencing samples 
 taken from multiple individuals within a population. In this lesson we will start with a set of sequenced reads (`.fastq` files) and perform
 some quality control steps. You will also learn about organising a genomics workflow and why metadata is an important consideration.
@@ -20,5 +20,5 @@ As you progress through this lesson, keep in mind that, even if you aren’t goi
 >
 > This lesson is part of a course that uses data hosted on an Amazon Machine Instance (AMI). Course participants will be given 
 > information on how
-> to log-in to the AMI during the course. Information on preparing for the course is provided on the [Cloud-SPAN Genomics Course setup page](https://cloud-span.github.io/genomics01-intro/setup.html).
+> to log-in to the AMI during the course. Information on preparing for the course is provided on the [Cloud-SPAN Genomics Course setup page](https://cloud-span.github.io/01genomics/setup.html).
 {: .prereq}

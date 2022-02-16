@@ -65,7 +65,7 @@ and place them in the current working directory, signified by `.`. While the dat
 
 The file structure of your `cs_course` directory now looks like this:
 
-![A file structure tree.](../fig/genomics03-ep1-starting_with_data.png){:width="400px"}
+![A file structure tree.](../fig/G03-01-starting_with_data.png){:width="600px"}
 
 The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer.
 
@@ -86,7 +86,7 @@ We will now assess the quality of the sequence reads contained in our fastq file
 
 We have already encountered the FASTQ format in [Prenomics](https://cloud-span.github.io/prenomics01-file-directories/01-understanding-file-systems/index.html) and in [lesson two of Genomics](https://cloud-span.github.io/02genomics/01-writing-scripts/index.html).
 
-![A diagram showing that each read in a FASTQ file comprises 4 lines of information.](../fig\fasta_file_format.png){:width="600px"}
+![A diagram showing that each read in a FASTQ file comprises 4 lines of information.](../fig\fastq_file_format.png){:width="600px"}
 
 Although it looks complicated, we can understand the
 [fastq](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. As a reminder, some rules about the format
@@ -418,8 +418,6 @@ $
 The FastQC program has created several new files within our
 `data/untrimmed_fastq/` directory.
 
-![A file hierarchy tree](../fig/genomics03-ep1-running_fastq.png){:width="400px"}
-
 ~~~
 $ ls
 ~~~
@@ -440,6 +438,8 @@ For each input FASTQ file, FastQC has created a `.zip` file and a
 actually a compressed set of multiple output files. We'll be working
 with these output files soon. The `.html` file is a stable webpage
 displaying the summary report for each of our samples.
+
+![A file hierarchy tree](../fig/G03-01-running_fastq.png){:width="600px"}
 
 We want to keep our data files and our results files separate, so we
 will move these

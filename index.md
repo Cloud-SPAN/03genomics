@@ -13,10 +13,13 @@ As you progress through this lesson, keep in mind that, even if you aren’t goi
 
 > ## Getting Started
 >
-> This lesson assumes no prior experience with the tools covered in the course. 
+> This lesson assumes no prior experience with the tools covered in the course.
 > However, learners are expected to have some familiarity with biological concepts,
-> including the 
-> concept of genomic variation within a population. Participants should bring their laptops and plan to participate actively. 
+> including the concept of genomic variation within a population, 
+as well as some basic experience using a command line interface to navigate file systems.  
+>
+> For a beginner-level overview of the command line, see the [Cloud-SPAN Prenomics course pages](https://cloud-span.github.io/prenomics00-intro/).
+> If you are unsure whether your skills/experience are sufficient, why not try our [self-assessment quiz](https://shiny.york.ac.uk/er13/prenomics-quiz/#section-why) to test your knowledge?
 >
 > This lesson is part of a course that uses data hosted on an Amazon Machine Instance (AMI). Course participants will be given 
 > information on how

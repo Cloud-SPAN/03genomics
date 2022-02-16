@@ -294,6 +294,12 @@ SRR2584863_2.trim.fastq.gz    SRR2584866_2.trim.fastq.gz    SRR2589044_2.trim.fa
 ~~~
 {: .output}
 
+Here is a diagram of what the file structure of your `cs_course` "data" directory looks like now:
+![A file hierarchy tree](../fig/G03-02-running_cutadapt.png){:width="600px"}
+
+The original data files are still in the `untrimmed_fastq` folder, while the new trimmed files get new names and reside in the `trimmed_fastq` directory. There are, of course, other directories containing other information (such as the quality control data we collected last episode).
+
+
 > ## Bonus Exercise (Advanced)
 >
 > Now that our samples have gone through quality control, they should perform

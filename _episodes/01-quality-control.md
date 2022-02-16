@@ -705,6 +705,10 @@ fastqc_data.txt  fastqc.fo  fastqc_report.html	Icons/	Images/  summary.txt
 ~~~
 {: .output}
 
+This might be easier to visualise using a tree diagram. Remember. there is a directory like this for each sample, not just the one shown.
+
+![A file hierarchy tree](../fig/G03-01-fastqc_text_output.png){:width="600px"}
+
 Use `less` to preview the `summary.txt` file for this sample.
 
 ~~~

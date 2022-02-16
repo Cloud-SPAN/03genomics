@@ -55,17 +55,21 @@ cd ~/cs_course/data/untrimmed_fastq
 ~~~
 {: .bash}
 
+Now we will copy all of the files from `.backup/untrimmed_fastq/` directory that end in `fastq.gz`
+and place them in the current working directory, signified by `.`. While the data is mid transfer you will not see your prompt (`$`). Do not try and restart the command, or enter the command twice, because you might overwrite and corrupt the files.
+
 ~~~
  $ cp ~/.backup/untrimmed_fastq/*fastq.gz .
 ~~~
 > {: .bash}
 
-> This command creates a copy of each of the files in the `.backup/untrimmed_fastq/` directory that end in `fastq.gz` and
-> places the copies in the current working directory (signified by `.`).
-{: .callout}
+The file structure of your `cs_course` directory now looks like this:
 
+![A file structure tree.](../fig/genomics03-ep1-starting_with_data.png){:width="400px"}
 
-The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format. While the data is mid transfer you will not see your prompt $, please do not try and restart the command, or enter the command twice because you might overwrite and corrupt the files
+The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer.
+
+Let's unzip one of the files so that we can look at the fastq format.
 
 ~~~
 $ gunzip SRR2584863_1.fastq.gz
@@ -77,10 +81,15 @@ $ gunzip SRR2584863_1.fastq.gz
 We will now assess the quality of the sequence reads contained in our fastq files.
 
 ![workflow_qc](../img/var_calling_workflow_qc.png)
+
 ## Details on the FASTQ format
 
-Although it looks complicated (and it is), we can understand the
-[fastq](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format
+We have already encountered the FASTQ format in [Prenomics](https://cloud-span.github.io/prenomics01-file-directories/01-understanding-file-systems/index.html) and in [lesson two of Genomics](https://cloud-span.github.io/02genomics/01-writing-scripts/index.html).
+
+![A diagram showing that each read in a FASTQ file comprises 4 lines of information.](../fig\fasta_file_format.png){:width="600px"}
+
+Although it looks complicated, we can understand the
+[fastq](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. As a reminder, some rules about the format
 include...
 
 |Line|Description|
@@ -90,7 +99,7 @@ include...
 |3|Always begins with a '+' and sometimes the same info in line 1|
 |4|Has a string of characters which represent the quality scores; must have same number of characters as line 2|
 
-We can view the first complete read in one of the files our dataset by using `head` to look at
+This means we can view the first complete read in one of the files our dataset by using `head` to look at
 the first four lines.
 
 ~~~
@@ -179,7 +188,40 @@ very poor (`#` = a quality score of 2).
 > {: .solution}
 {: .challenge}
 
- We can use the -h flag to show us what parameters are available for the fastqc tool
+## Assessing Quality using FastQC
+In real life, you won't be assessing the quality of your reads by visually inspecting your
+FASTQ files. Rather, you'll be using a software program to assess read quality and
+filter out poor quality reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads.
+Later in our workflow, we'll use another program to filter out poor quality reads.
+
+FastQC has a number of features which can give you a quick impression of any problems your
+data may have, so you can take these issues into consideration before moving forward with your
+analyses. Rather than looking at quality scores for each individual read, FastQC looks at
+quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates
+a very high quality sample:
+
+![good_quality](../img/good_quality1.8.png)
+
+The x-axis displays the base position in the read, and the y-axis shows quality scores. In this
+example, the sample contains reads that are 40 bp long. This is much shorter than the reads we
+are working with in our workflow. For each position, there is a box-and-whisker plot showing
+the distribution of quality scores for all reads at that position. The horizontal red line
+indicates the median quality score and the yellow box shows the 1st to
+3rd quartile range. This means that 50% of reads have a quality score that falls within the
+range of the yellow box at that position. The whiskers show the absolute range, which covers
+the lowest (0th quartile) to highest (4th quartile) values.
+
+For each position in this sample, the quality values do not drop much lower than 32. This
+is a high quality score. The plot background is also color-coded to identify good (green),
+acceptable (yellow), and bad (red) quality scores.
+
+Now let's take a look at a quality plot on the other end of the spectrum.
+
+![bad_quality](../img/bad_quality1.8.png)
+
+Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above.
+
+ We can use the -h flag to show us what parameters are available for the FastQC tool
  
 ~~~
 $ fastqc -h
@@ -298,49 +340,6 @@ BUGS
 ~~~
 {: .bash}
 
-if fastqc is not installed then you would expect to see an error like
-
-~~~
-$ fastqc -h
-The program 'fastqc' is currently not installed. You can install it by typing:
-sudo apt-get install fastqc
-~~~
-
-If this happens check with your instructor before trying to install it.
-
-## Assessing Quality using FastQC
-In real life, you won't be assessing the quality of your reads by visually inspecting your
-FASTQ files. Rather, you'll be using a software program to assess read quality and
-filter out poor quality reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads.
-Later in our workflow, we'll use another program to filter out poor quality reads.
-
-FastQC has a number of features which can give you a quick impression of any problems your
-data may have, so you can take these issues into consideration before moving forward with your
-analyses. Rather than looking at quality scores for each individual read, FastQC looks at
-quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates
-a very high quality sample:
-
-![good_quality](../img/good_quality1.8.png)
-
-The x-axis displays the base position in the read, and the y-axis shows quality scores. In this
-example, the sample contains reads that are 40 bp long. This is much shorter than the reads we
-are working with in our workflow. For each position, there is a box-and-whisker plot showing
-the distribution of quality scores for all reads at that position. The horizontal red line
-indicates the median quality score and the yellow box shows the 1st to
-3rd quartile range. This means that 50% of reads have a quality score that falls within the
-range of the yellow box at that position. The whiskers show the absolute range, which covers
-the lowest (0th quartile) to highest (4th quartile) values.
-
-For each position in this sample, the quality values do not drop much lower than 32. This
-is a high quality score. The plot background is also color-coded to identify good (green),
-acceptable (yellow), and bad (red) quality scores.
-
-Now let's take a look at a quality plot on the other end of the spectrum.
-
-![bad_quality](../img/bad_quality1.8.png)
-
-Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above.
-
 ## Running FastQC
 
 We will now assess the quality of the reads that we downloaded. First, make sure you're still in the `untrimmed_fastq` directory
@@ -418,6 +417,8 @@ $
 
 The FastQC program has created several new files within our
 `data/untrimmed_fastq/` directory.
+
+![A file hierarchy tree](../fig/genomics03-ep1-running_fastq.png){:width="400px"}
 
 ~~~
 $ ls

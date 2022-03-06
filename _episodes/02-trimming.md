@@ -182,7 +182,7 @@ Total written (filtered):    290,141,080 bp (87.4%)
 > ## Exercise
 >
 > Use the output from your cutadapt command to answer the
-> following questions. Share your thoughts on the Padlet.
+> following questions. Share your thoughts on the [Forum](https://cloudspan.peerboard.com/space/1783234884).
 >
 > 1) How many reads had adapters in the R1 reads?
 > 2) What total percent of reads were trimmed/filtered?
@@ -317,11 +317,11 @@ The original data files are still in the `untrimmed_fastq` folder, while the new
 >> ~~~
 >> {: .bash}
 >>
->> In a new tab in your terminal do:
+>> In the terminal on your local machine (not the one logged into the AWS instance) do:
 >>
 >> ~~~
->> $ mkdir ~/Desktop/fastqc_html/trimmed
->> $ scp csuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/cs_course/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
+>> $ mkdir fastqc_html/trimmed
+>> $ scp -i login_key_instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/data/trimmed_fastq/*.html fastqc_html/trimmed
 >> ~~~
 >> {: .bash}
 >>

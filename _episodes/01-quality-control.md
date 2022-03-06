@@ -164,7 +164,7 @@ very poor (`#` = a quality score of 2).
 > What is the last read in the `SRR2584863_1.fastq ` file? How confident
 > are you in the accuracy of this read?
 >
-> Share your answers in the Padlet.
+> Share your answers in the [Forum](https://cloudspan.peerboard.com/space/1783234884.
 >
 >> ## Solution
 >> ~~~
@@ -533,7 +533,7 @@ in your file browser.
 > - Which sample(s) looks the best in terms of per base sequence quality?
 > - Which sample(s) look the worst?
 >
-> Nominate someone from your group to post a summary of your discussions on the Padlet.
+> Nominate someone from your group to post a summary of your discussions on the [Forum](https://cloudspan.peerboard.com/space/1783234884).
 >
 >> ## Solution
 >> All of the reads contain usable data, but the quality decreases toward

@@ -491,15 +491,15 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp -i login_key_instanceNN.pem csuser@instanceNN-gc.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/results/fastqc_untrimmed_reads*.html fastqc_html
+$ scp -i login_key_instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/results/fastqc_untrimmed_reads*.html fastqc_html
 
 
 ~~~
 {: .bash}
 
 As a reminder, the first part
-of the command `csuser@instance01-gc-cloud-span.york.ac.uk` is
-the address for your remote computer. Make sure you replace the instance number with the one you used to log in.
+of the command `csuser@instanceNNN-cloud-span.york.ac.uk` is
+the address for your remote computer. Make sure you replace the `NNN` with your instance number.
 
 The second part starts with a `:` and then gives the absolute path
 of the files you want to transfer from your remote computer. Don't

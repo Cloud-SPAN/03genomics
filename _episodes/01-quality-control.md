@@ -478,13 +478,12 @@ To transfer a file from a remote server to our own machines, we will
 use `scp`, which we learned yesterday in the Shell Genomics lesson.
 
 First we
-will make a new directory on our computer to store the HTML files
-we're transferring. Let's put it on our desktop for now. Open a new
-tab in your terminal program (you can use the pull down menu at the
-top of your screen or the Cmd+t keyboard shortcut) and type:
+will make a new directory on our local computer to store the HTML files
+we're transferring. 
+Launch another Git Bash or Terminal from the cloudspan folder and type:
 
 ~~~
-$ mkdir -p ~/Desktop/fastqc_html
+$ mkdir fastqc_html
 ~~~
 {: .bash}
 
@@ -497,8 +496,7 @@ $ scp -i login_key_instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk:
 ~~~
 {: .bash}
 
-As a reminder, the first part
-of the command `csuser@instanceNNN-cloud-span.york.ac.uk` is
+As a reminder, the first part of the command `csuser@instanceNNN-cloud-span.york.ac.uk` is
 the address for your remote computer. Make sure you replace the `NNN` with your instance number.
 
 The second part starts with a `:` and then gives the absolute path
@@ -508,7 +506,7 @@ the HTML files.
 
 The third part of the command gives the absolute path of the location
 you want to put the files. This is on your local computer and is the
-directory we just created `~/Desktop/fastqc_html`.
+directory we just created `fastqc_html`.
 
 You should see a status output like this:
 
@@ -560,9 +558,7 @@ We've now looked at quite a few "Per base sequence quality" FastQC graphs, but t
 ## Working with the FastQC text output
 
 Now that we've looked at our HTML reports to get a feel for the data,
-let's look more closely at the other output files. Go back to the tab
-in your terminal program that is connected to your AWS instance
-(the tab label will start with `csuser@ip`) and make sure you're in
+let's look more closely at the other output files. Go back to the terminal program that is logged to your AWS instance and make sure you're in
 our results subdirectory.
 
 ~~~

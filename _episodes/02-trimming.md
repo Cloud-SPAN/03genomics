@@ -182,14 +182,14 @@ Total written (filtered):    290,141,080 bp (87.4%)
 > ## Exercise
 >
 > Use the output from your cutadapt command to answer the
-> following questions. Share your thoughts on the [Forum](https://cloudspan.peerboard.com/space/1783234884).
+> following questions. Share your thoughts on the [forum](https://cloudspan.peerboard.com/post/343027704).
 >
-> 1) How many reads had adapters in the R1 reads?
-> 2) What total percent of reads were trimmed/filtered?
+> 1. How many reads had adapters in the R1 reads?
+> 2. What total percent of reads were trimmed/filtered?
 >
 >> ## Solution
->> 1) 15.8%
->> 2) 87.4%
+>> 1. 15.8%
+>> 2. 87.4%
 > {: .solution}
 {: .challenge}
 
@@ -307,6 +307,8 @@ The original data files are still in the `untrimmed_fastq` folder, while the new
 > FastQC on your trimmed FASTQ files and visualize the HTML files
 > to see whether your per base sequence quality is higher after
 > trimming.
+>
+> Share your thoughts on the [forum](https://cloudspan.peerboard.com/post/1305951979).
 >
 >> ## Solution
 >>

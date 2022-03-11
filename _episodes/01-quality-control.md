@@ -222,7 +222,7 @@ Now let's take a look at a quality plot on the other end of the spectrum.
 Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above.
 
  We can use the -h flag to show us what parameters are available for the FastQC tool
- 
+
 ~~~
 $ fastqc -h
             FastQC - A high throughput sequence QC analysis tool
@@ -480,7 +480,7 @@ use `scp`, which we learned yesterday in the Shell Genomics lesson.
 
 First we
 will make a new directory on our local computer to store the HTML files
-we're transferring. 
+we're transferring.
 Launch another Git Bash or Terminal from the cloudspan folder and type:
 
 ~~~
@@ -491,7 +491,7 @@ $ mkdir fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp -i login_key_instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/results/fastqc_untrimmed_reads*.html fastqc_html
+$ scp -i login_key_instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/results/fastqc_untrimmed_reads/*.html fastqc_html
 
 
 ~~~
@@ -746,7 +746,7 @@ $ cat */summary.txt > ~/cs_course/docs/fastqc_summaries.txt
 > ## Exercise
 >
 > Use grep to find out:
-> - Which samples failed at least one of FastQC's quality tests? 
+> - Which samples failed at least one of FastQC's quality tests?
 > - What test(s) did those samples fail?
 >
 > Share your answers on the [forum](https://cloudspan.peerboard.com/post/1597071311).

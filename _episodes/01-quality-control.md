@@ -476,7 +476,7 @@ So the easiest way to look at these webpage summary reports will be
 to transfer them to our local computers (i.e. your laptop).
 
 To transfer a file from a remote server to our own machines, we will
-use `scp`, which we learned yesterday in the Shell Genomics lesson.
+use `scp`, which we learned previously in the 'Data preparation and organisation' lesson.
 
 First we
 will make a new directory on our local computer to store the HTML files

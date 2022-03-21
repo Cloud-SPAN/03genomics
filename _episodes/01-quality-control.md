@@ -492,10 +492,17 @@ Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
 $ scp -i login_key_instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/results/fastqc_untrimmed_reads/*.html fastqc_html
-
-
 ~~~
 {: .bash}
+
+> ## zsh: no matches found?
+> On some set ups, you may get an error because of the `*`, a special character, in the location. This can be resolved by using quotes:
+~~~
+$ scp -i login_key_instanceNNN.pem 'csuser@instanceNNN.cloud-span.aws.york.ac.uk:/home/csuser/cs_course/results/fastqc_untrimmed_reads/*.html' fastqc_html
+~~~
+{: .bash}
+{: .callout}
+
 
 As a reminder, the first part of the command `csuser@instanceNNN-cloud-span.york.ac.uk` is
 the address for your remote computer. Make sure you replace the `NNN` with your instance number.

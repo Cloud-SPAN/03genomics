@@ -20,7 +20,7 @@ authors:
   orcid: "https://orcid.org/0000-0002-1358-8275"
 title: "Cloud-SPAN Genomics Course: Assessing, Trimming & Filtering Reads"
 version: 0.1.0
-doi: 10.5281/zenodo.5583151
+doi:
 date-released: 2022-03-01
 url: "https://cloud-span.github.io/03genomics/"
 references:
@@ -40,7 +40,7 @@ references:
     - family-names: "Kretzschmar"
       given-names: "Winni"
     date-released: "2019-06-01"
-    doi:
+    doi: 10.5281/zenodo.3260609
     repository-code: "https://github.com/datacarpentry/wrangling-genomics/"
     title: "Data Carpentry: Genomics data wrangling and processing"
     type: software

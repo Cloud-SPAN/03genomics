@@ -1,6 +1,6 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5583151.svg)](https://doi.org/10.5281/zenodo.5583151)
 
-# Genomics Session 3. Data Preparation and organisation
+# Genomics Session 3. Assessing read quality then trimming and filtering reads
 
 Third session of the Cloud-SPAN Genomics course.
 

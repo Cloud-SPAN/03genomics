@@ -18,7 +18,7 @@ authors:
 - family-names: "Rand"
   given-names: "Emma"
   orcid: "https://orcid.org/0000-0002-1358-8275"
-title: "Cloud-SPAN Genomics Course: Assessing, Trimming & Filtering Reads"
+title: "Cloud-SPAN Genomics Course: Assessing Read Quality then Trimming and Filtering Reads"
 version: 0.1.0
 doi: TBC
 date-released: 2022-03-01

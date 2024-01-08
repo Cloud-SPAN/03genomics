@@ -164,8 +164,6 @@ very poor (`#` = a quality score of 2).
 > What is the last read in the `SRR2584863_1.fastq ` file? How confident
 > are you in the accuracy of this read?
 >
-> Share your answers in the [forum](https://cloudspan.peerboard.com/post/1506937373).
->
 >> ## Solution
 >> ~~~
 >> $ tail -n 4 SRR2584863_1.fastq
@@ -354,8 +352,7 @@ $ cd ~/cs_course/data/untrimmed_fastq/
 >  How big are the files?
 > (Hint: Look at the options for the `ls` command to see how to show
 > file sizes.)
->
-> Share your answer on the [forum](https://cloudspan.peerboard.com/post/1155231227)
+> 
 >> ## Solution
 >>
 >> ~~~
@@ -540,8 +537,6 @@ in your file browser.
 >
 > - Which sample(s) looks the best in terms of per base sequence quality?
 > - Which sample(s) look the worst?
->
-> Nominate someone from your group to post a short summary of your discussions on the [forum](https://cloudspan.peerboard.com/post/1022852590).
 >
 >> ## Solution
 >> All of the reads contain usable data, but the quality decreases toward
@@ -755,8 +750,6 @@ $ cat */summary.txt > ~/cs_course/docs/fastqc_summaries.txt
 > Use grep to find out:
 > - Which samples failed at least one of FastQC's quality tests?
 > - What test(s) did those samples fail?
->
-> Share your answers on the [forum](https://cloudspan.peerboard.com/post/1597071311).
 >
 >> ## Solution
 >>
